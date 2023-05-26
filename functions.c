@@ -1,10 +1,8 @@
 #include "main.h"
 
-/************************* PRINT CHAR *************************/
-
 /**
  * print_char - Prints a char
- * @types: Lista of arguments
+ * @types: List a of arguments
  * @buffer: Buffer array to handle print
  * @flags:  Calculates active flags
  * @width: Width
@@ -19,10 +17,10 @@ int print_char(va_list types, char buffer[],
 
 	return (handle_write_char(c, buffer, flags, width, precision, size));
 }
-/************************* PRINT A STRING *************************/
+
 /**
  * print_string - Prints a string
- * @types: Lista of arguments
+ * @types: List a of arguments
  * @buffer: Buffer array to handle print
  * @flags:  Calculates active flags
  * @width: get width.
@@ -74,7 +72,7 @@ int print_string(va_list types, char buffer[],
 
 	return (write(1, str, length));
 }
-/************************* PRINT PERCENT SIGN *************************/
+
 /**
  * print_percent - Prints a percent sign
  * @types: Lista of arguments
@@ -97,7 +95,7 @@ int print_percent(va_list types, char buffer[],
 	return (write(1, "%%", 1));
 }
 
-/************************* PRINT INT *************************/
+
 /**
  * print_int - Print int
  * @types: Lista of arguments
@@ -141,7 +139,7 @@ int print_int(va_list types, char buffer[],
 	return (write_number(is_negative, i, buffer, flags, width, precision, size));
 }
 
-/************************* PRINT BINARY *************************/
+
 /**
  * print_binary - Prints an unsigned number
  * @types: Lista of arguments
