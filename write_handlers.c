@@ -128,22 +128,22 @@ int write_num(int ind, char buffer[], int flags, int width, int prec, int length
 		buffer[--ind] = extra_c;
 	return (write(1, &buffer[ind], length));
 }
-
 /**
  * write_unsgnd - Writes an unsigned number
  * @is_negative: Number indicating if the number is negative
- * @ind: Starting index in the buffer
- * @buffer: Buffer array
+ * @ind: Index at which the number starts in the buffer
+ * @buffer: Array of chars
  * @flags: Flags specifiers
  * @width: Width specifier
  * @precision: Precision specifier
  * @size: Size specifier
  *
- * Return: Number of characters printed
+ * Return: Number of written chars.
  */
 int write_unsgnd(int is_negative, int ind, char buffer[], int flags, int width, int precision, int size)
 {
-	int length = BUFF_SIZE - ind - 1, i = 0;
+	int length = BUFF_SIZE - ind - 1;
+	int i = 0;
 	char padd = ' ';
 
 	UNUSED(is_negative);
@@ -151,6 +151,7 @@ int write_unsgnd(int is_negative, int ind, char buffer[], int flags, int width, 
 
 	if (precision == 0 && ind == BUFF_SIZE - 2 && buffer[ind] == '0')
 		return (0);
+
 	if (precision > 0 && precision < length)
 		padd = ' ';
 
